@@ -9,7 +9,7 @@ public class Hotels {
     @GeneratedValue
     private Long id;
     @NotBlank
-    private String hotel_u_id;
+    private String vendor_u_id;
     @NotBlank
     private String hotel_name;
     @NotBlank
@@ -19,37 +19,62 @@ public class Hotels {
     @NotBlank
     private Long hotel_pin;
     @NotBlank
-    private String hotel_landmark;
+    private String hotel_image1;
     @NotBlank
-    private String hotel_image;
+    private String hotel_image2;
+    private String hotel_image3;
+    private String hotel_image4;
+    private String hotel_image5;
     @NotBlank
-    private String hotel_doc1;
+    private String city;
     @NotBlank
-    private String hotel_doc_2;
+    private Long status;
     @NotBlank
-    private String hotel_doc_3;
+    private String property_type;
     @NotBlank
-    private  String city;
+    private String room_type;
     @NotBlank
-    private Long hotel_status;
-    public Hotels(){
+    private String bed_type;
+    @NotBlank
+    private Long ac;
+    @NotBlank
+    private Long wifi;
+    @NotBlank
+    private Long garden;
+    @NotBlank
+    private Long price;
+    @NotBlank
+    private String description;
+
+    public Hotels() {
         super();
     }
-    public Hotels(Long id,String hotel_u_id, String hotel_name, String hotel_address,Long hotel_phone,Long hotel_pin,String hotel_landmark,String hotel_image,String hotel_doc1,String hotel_doc_2, String hotel_doc_3,String city,Long hotel_status) {
+
+    public Hotels(Long id, String vendor_u_id, String hotel_name, String hotel_address, Long hotel_phone, Long hotel_pin, String hotel_image1, String hotel_image2, String hotel_image3, String hotel_image4, String hotel_image5, String city, Long status, String property_type, String room_type, String bed_type, Long ac, Long wifi, Long garden, Long price, String description) {
         super();
         this.id = id;
+        this.vendor_u_id = vendor_u_id;
         this.hotel_name = hotel_name;
-        this.hotel_u_id = hotel_u_id;
-        this.hotel_address=hotel_address;
-        this.hotel_phone=hotel_phone;
-        this.hotel_pin=hotel_pin;
-        this.hotel_landmark=hotel_landmark;
-        this.hotel_image=hotel_image;
-        this.hotel_doc1=hotel_doc1;
-        this.hotel_doc_2=hotel_doc_2;
-        this.hotel_doc_3=hotel_doc_3;
-        this.city=city;
-        this.hotel_status=hotel_status;
+        this.hotel_address = hotel_address;
+        this.hotel_phone = hotel_phone;
+        this.hotel_pin = hotel_pin;
+        this.hotel_image1 = hotel_image1;
+        this.hotel_image2 = hotel_image2;
+        this.hotel_image3 = hotel_image3;
+        this.hotel_image4 = hotel_image4;
+        this.hotel_image5 = hotel_image5;
+        this.city = city;
+        this.room_type = room_type;
+        this.property_type = property_type;
+        this.price = price;
+        this.bed_type = bed_type;
+        this.ac = ac;
+        this.garden = garden;
+        this.wifi = wifi;
+        this.description = description;
+        this.status = status;
+
+
     }
 
     public Long getId() {
@@ -60,12 +85,12 @@ public class Hotels {
         this.id = id;
     }
 
-    public String getHotel_u_id() {
-        return hotel_u_id;
+    public String getVendor_u_id() {
+        return vendor_u_id;
     }
 
-    public void setHotel_u_id(String hotel_u_id) {
-        this.hotel_u_id = hotel_u_id;
+    public void setVendor_u_id(String vendor_u_id) {
+        this.vendor_u_id = vendor_u_id;
     }
 
     public String getHotel_name() {
@@ -100,44 +125,44 @@ public class Hotels {
         this.hotel_pin = hotel_pin;
     }
 
-    public String getHotel_landmark() {
-        return hotel_landmark;
+    public String getHotel_image1() {
+        return hotel_image1;
     }
 
-    public void setHotel_landmark(String hotel_landmark) {
-        this.hotel_landmark = hotel_landmark;
+    public void setHotel_image1(String hotel_image1) {
+        this.hotel_image1 = hotel_image1;
     }
 
-    public String getHotel_image() {
-        return hotel_image;
+    public String getHotel_image2() {
+        return hotel_image2;
     }
 
-    public void setHotel_image(String hotel_image) {
-        this.hotel_image = hotel_image;
+    public void setHotel_image2(String hotel_image2) {
+        this.hotel_image2 = hotel_image2;
     }
 
-    public String getHotel_doc1() {
-        return hotel_doc1;
+    public String getHotel_image3() {
+        return hotel_image3;
     }
 
-    public void setHotel_doc1(String hotel_doc1) {
-        this.hotel_doc1 = hotel_doc1;
+    public void setHotel_image3(String hotel_image3) {
+        this.hotel_image3 = hotel_image3;
     }
 
-    public String getHotel_doc_2() {
-        return hotel_doc_2;
+    public String getHotel_image4() {
+        return hotel_image4;
     }
 
-    public void setHotel_doc_2(String hotel_doc_2) {
-        this.hotel_doc_2 = hotel_doc_2;
+    public void setHotel_image4(String hotel_image4) {
+        this.hotel_image4 = hotel_image4;
     }
 
-    public String getHotel_doc_3() {
-        return hotel_doc_3;
+    public String getHotel_image5() {
+        return hotel_image5;
     }
 
-    public void setHotel_doc_3(String hotel_doc_3) {
-        this.hotel_doc_3 = hotel_doc_3;
+    public void setHotel_image5(String hotel_image5) {
+        this.hotel_image5 = hotel_image5;
     }
 
     public String getCity() {
@@ -148,11 +173,75 @@ public class Hotels {
         this.city = city;
     }
 
-    public Long getHotel_status() {
-        return hotel_status;
+    public Long getStatus() {
+        return status;
     }
 
-    public void setHotel_status(Long hotel_status) {
-        this.hotel_status = hotel_status;
+    public void setStatus(Long status) {
+        this.status = status;
+    }
+
+    public String getProperty_type() {
+        return property_type;
+    }
+
+    public void setProperty_type(String property_type) {
+        this.property_type = property_type;
+    }
+
+    public String getRoom_type() {
+        return room_type;
+    }
+
+    public void setRoom_type(String room_type) {
+        this.room_type = room_type;
+    }
+
+    public String getBed_type() {
+        return bed_type;
+    }
+
+    public void setBed_type(String bed_type) {
+        this.bed_type = bed_type;
+    }
+
+    public Long getAc() {
+        return ac;
+    }
+
+    public void setAc(Long ac) {
+        this.ac = ac;
+    }
+
+    public Long getWifi() {
+        return wifi;
+    }
+
+    public void setWifi(Long wifi) {
+        this.wifi = wifi;
+    }
+
+    public Long getGarden() {
+        return garden;
+    }
+
+    public void setGarden(Long garden) {
+        this.garden = garden;
+    }
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
