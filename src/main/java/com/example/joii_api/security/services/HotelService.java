@@ -18,7 +18,7 @@ public class HotelService {
     public List getAllReservations() {
 
         List hotels = new ArrayList<>();
-        hotelRepository.findAll().forEach(hotels::add);
+        hotelRepository.findAvailableHotels().forEach(hotels::add);
 
         return hotels;
     }

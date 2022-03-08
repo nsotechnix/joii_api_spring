@@ -15,6 +15,11 @@ public class HotelController {
     @Autowired
     HotelRepository hotelRepository;
 
+    @GetMapping("/api/hotels/available")
+    public  List <Hotels> getAvailableHotels(){
+      return   hotelRepository.findAvailableHotels();
+    }
+
      //Get All Notes
     @GetMapping("/api/hotels")
     public List<Hotels> getAllHotels() {
@@ -31,6 +36,12 @@ public Optional <Hotels> getbyId(@PathVariable Long id) {
     public List<Hotels> getbyCity(@PathVariable String city) {
         return hotelService.findAllByCity(city);
     }
+
+    @RequestMapping(value = "/api/hotels/city/{city}", method = RequestMethod.POST)
+    public List<Hotels> Search(@PathVariable String city) {
+        return hotelService.findAllByCity(city);
+    }
+
 
 
 
