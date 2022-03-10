@@ -34,6 +34,17 @@ public class HotelService {
          return hotelRepository.findById(id);
     }
 
+    public List getAllByPriceASC(){
+        List hotels= new ArrayList<>();
+        hotelRepository.findAllByOrderByPriceAsc().forEach(hotels::add);
+        return hotels;
+    }
+    public List getAllByPriceDESC(){
+        List hotels= new ArrayList<>();
+        hotelRepository.findAllByOrderByPriceDesc().forEach(hotels::add);
+        return hotels;
+    }
+
 
 
 

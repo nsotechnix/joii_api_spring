@@ -42,6 +42,16 @@ public Optional <Hotels> getbyId(@PathVariable Long id) {
         return hotelService.findAllByCity(city);
     }
 
+    @RequestMapping(value = "/api/hotels/price/asc", method = RequestMethod.GET)
+    public List<Hotels> getALLHotelsPrice() {
+        return hotelService.getAllByPriceASC();
+    }
+    @RequestMapping(value = "/api/hotels/price/desc", method = RequestMethod.GET)
+    public List<Hotels> getALLHotelsPriceDesc() {
+        return hotelService.getAllByPriceDESC();
+    }
+
+
 
 
 
