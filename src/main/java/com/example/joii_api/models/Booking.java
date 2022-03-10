@@ -1,12 +1,15 @@
 package com.example.joii_api.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
@@ -23,19 +26,28 @@ public class Booking {
     @NotBlank
     private String room_id;
     @Column(name = "check_in_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime check_in_date ;
+    @DateTimeFormat(pattern = "yyyy-MM-dd", iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate check_in_date ;
+
     @Column(name = "check_out_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime check_out_date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd", iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate check_out_date ;
     @NotBlank
     private String status;
+    @NotBlank
+    private  String amount;
+    @NotBlank
+    private  String no_of_days;
+    @CreatedDate
+    @Temporal(TemporalType.DATE)
+    @Column(name = "booking_date")
+    private Date booking_date=new Date();
     public Booking(){
         super();
     }
-    public Booking(Long id,String hotel_u_id,String user_id, String room_id,LocalDateTime check_in_date,LocalDateTime check_out_date,String status) {
+    public Booking(Long id,String hotel_u_id,String user_id, String room_id,LocalDate check_in_date,LocalDate check_out_date,String status,String amount,String no_of_days,Date booking_date) {
         super();
         this.id = id;
         this.hotel_u_id = hotel_u_id;
@@ -44,6 +56,9 @@ public class Booking {
         this.check_in_date=check_in_date;
         this.check_out_date=check_out_date;
         this.status=status;
+        this.amount=amount;
+        this.no_of_days=no_of_days;
+        this.booking_date=booking_date;
 
     }
 
@@ -79,19 +94,19 @@ public class Booking {
         this.room_id = room_id;
     }
 
-    public LocalDateTime getCheck_in_date() {
+    public LocalDate getCheck_in_date() {
         return check_in_date;
     }
 
-    public void setCheck_in_date(LocalDateTime check_in_date) {
+    public void setCheck_in_date(LocalDate check_in_date) {
         this.check_in_date = check_in_date;
     }
 
-    public LocalDateTime getCheck_out_date() {
+    public LocalDate getCheck_out_date() {
         return check_out_date;
     }
 
-    public void setCheck_out_date(LocalDateTime check_out_date) {
+    public void setCheck_out_date(LocalDate check_out_date) {
         this.check_out_date = check_out_date;
     }
 
@@ -101,5 +116,29 @@ public class Booking {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public String getNo_of_days() {
+        return no_of_days;
+    }
+
+    public void setNo_of_days(String no_of_days) {
+        this.no_of_days = no_of_days;
+    }
+
+    public Date getBooking_date() {
+        return booking_date;
+    }
+
+    public void setBooking_date(Date booking_date) {
+        this.booking_date = booking_date;
     }
 }
