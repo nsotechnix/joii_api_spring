@@ -111,4 +111,17 @@ public class AuthController {
     public Optional<User> getUser(@PathVariable Long id) {
         return userRepository.findById(id) ;
     }
+
+    //update user
+    @PutMapping("/user/{id}")
+    public ResponseEntity<Object> updateUser(@PathVariable(value = "id") Long id, @RequestBody User user) {
+        user.setId(id);
+        user.setPassword(encoder.encode(user.getPassword()));
+        user = userRepository.save(user);
+
+        if(user == null) {
+            return ResponseEntity.ok().body(new String("Not Found"));
+        }
+        return ResponseEntity.ok().body(user);
+    }
 }
