@@ -1,18 +1,25 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      java: corretto11
+  
   build:
     commands:
-      - ./gradlew bootJar
+      - echo Build Starting on `date`
+      - chmod +x mvn
+      - mvn package
+      - echo $JAVA_HOME
   post_build:
     commands:
-      - echo Build completed
-artifcats:
+      - echo $(basename ./target/*.jar)
+      - pwd
+
+artifacts:
   files:
-    - build/libs/*.jar
-    - scripts/ *.sh
     - appspec.yml
+    - target/*.jar
+    - scripts/**
   discard-paths: yes
+
+cache:
+  paths:
+    - '/root/.gradle/caches/**/*'
