@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 echo "Waiting for 15 seconds before checking health.."
 sleep 15
