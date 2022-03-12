@@ -18,7 +18,7 @@ public class ContactController {
     @RequestMapping(value = "/addcontact", method = RequestMethod.POST)
     public ResponseEntity<MessageResponse> addContact(@RequestBody Contact contact) {
         contactService.addContact(contact);
-        return ResponseEntity.ok(new MessageResponse("Booked  successfully!"));
+        return ResponseEntity.ok(new MessageResponse("Sent  successfully!"));
 
     }
 }
