@@ -44,6 +44,12 @@ public class HotelService {
         hotelRepository.findAllByOrderByPriceDesc().forEach(hotels::add);
         return hotels;
     }
+    public List getAllByPropertyType(String property_type){
+        List hotels = new ArrayList<>();
+        hotelRepository.findHotelsByProperty_type(property_type).forEach(hotels::add);
+        return hotels;
+
+    }
 
 
 

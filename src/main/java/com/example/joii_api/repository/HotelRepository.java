@@ -15,5 +15,7 @@ public interface HotelRepository extends JpaRepository<Hotels, String> {
     Optional<Hotels>findById(Long id);
    List <Hotels>findAllByOrderByPriceAsc();
    List <Hotels>findAllByOrderByPriceDesc();
+    @Query(value = "SELECT * FROM hotels WHERE property_type = ?1", nativeQuery = true)
+   List <Hotels>findHotelsByProperty_type(String property_type);
 
 }

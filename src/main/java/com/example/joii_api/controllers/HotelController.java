@@ -52,6 +52,11 @@ public Optional <Hotels> getbyId(@PathVariable Long id) {
         return hotelService.getAllByPriceDESC();
     }
 
+    @RequestMapping(value = "/api/hotels/type/{property_type}", method = RequestMethod.GET)
+    public List<Hotels> Getallbyproperty(@PathVariable String property_type) {
+        return hotelService.getAllByPropertyType(property_type);
+    }
+
 
 
 
