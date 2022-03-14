@@ -2,9 +2,11 @@ package com.example.joii_api.models;
 
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -28,11 +30,16 @@ public class VendorInfo {
     @GeneratedValue
     private String unique_id= String.valueOf(UUID.randomUUID());
 
+    @CreatedDate
+    @Temporal(TemporalType.DATE)
+    @Column(name = "create_date")
+    private Date create_date=new Date();
+
 
 public VendorInfo(){
     super();
 }
-    public VendorInfo(Long id,String name,String phone,String email, Long status,String unique_id) {
+    public VendorInfo(Long id,String name,String phone,String email, Long status,String unique_id,Date create_date) {
         super();
         this.id = id;
         this.name=name;
@@ -40,6 +47,7 @@ public VendorInfo(){
         this.phone=phone;
         this.status=status;
         this.unique_id=unique_id;
+        this.create_date=create_date;
 
     }
 
@@ -89,5 +97,13 @@ public VendorInfo(){
 
     public void setUnique_id(String unique_id) {
         this.unique_id = unique_id;
+    }
+
+    public Date getCreate_date() {
+        return create_date;
+    }
+
+    public void setCreate_date(Date create_date) {
+        this.create_date = create_date;
     }
 }
