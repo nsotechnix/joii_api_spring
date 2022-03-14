@@ -65,6 +65,8 @@ public class Hotels {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate update_date ;
 
+    private String map_location;
+
 
 
 
@@ -73,7 +75,7 @@ public class Hotels {
     }
 
     public Hotels(Long id,String room_id,String  bed_type,String city,String description,String hotel_image1,String hotel_image2,String hotel_image3,String hotel_image4,String hotel_image5, String address, String hotel_name
-    ,Long hotel_phone,Long hotel_pin, Long price,String property_type,String room_type,String facility,Long status,String vendor_u_id,LocalDate added_date,LocalDate update_date) {
+    ,Long hotel_phone,Long hotel_pin, Long price,String property_type,String room_type,String facility,Long status,String vendor_u_id,LocalDate added_date,LocalDate update_date,String map_location) {
         super();
         this.id=id;
         this.room_id=room_id;
@@ -97,6 +99,7 @@ public class Hotels {
         this.vendor_u_id=vendor_u_id;
         this.added_date=added_date;
         this.update_date=update_date;
+        this.map_location=map_location;
 
     }
 
@@ -274,5 +277,13 @@ public class Hotels {
 
     public void setUpdate_date(LocalDate update_date) {
         this.update_date = update_date;
+    }
+
+    public String getMap_location() {
+        return map_location;
+    }
+
+    public void setMap_location(String map_location) {
+        this.map_location = map_location;
     }
 }
