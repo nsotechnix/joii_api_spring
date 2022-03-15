@@ -29,7 +29,7 @@ import com.example.joii_api.repository.RoleRepository;
 import com.example.joii_api.repository.UserRepository;
 import com.example.joii_api.security.jwt.JwtUtils;
 import com.example.joii_api.security.services.UserDetailsImpl;
-@CrossOrigin(origins = "**", maxAge = 3600)
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class AuthController {
