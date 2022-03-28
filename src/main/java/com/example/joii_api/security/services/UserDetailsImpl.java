@@ -16,14 +16,16 @@ public class UserDetailsImpl implements UserDetails {
     private String email;
     @JsonIgnore
     private String password;
+    private String phone;
     private Collection<? extends GrantedAuthority> authorities;
     public UserDetailsImpl(Long id, String username, String email, String password,
-                           Collection<? extends GrantedAuthority> authorities) {
+                           Collection<? extends GrantedAuthority> authorities,String phone) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
+        this.phone=phone;
     }
     public static UserDetailsImpl build(User user) {
         List<GrantedAuthority> authorities = user.getRoles().stream()
@@ -34,7 +36,7 @@ public class UserDetailsImpl implements UserDetails {
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
-                authorities);
+                authorities,user.getPhone());
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -54,6 +56,7 @@ public class UserDetailsImpl implements UserDetails {
     public String getUsername() {
         return username;
     }
+    public String getPhone(){return phone;}
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -79,4 +82,6 @@ public class UserDetailsImpl implements UserDetails {
         UserDetailsImpl user = (UserDetailsImpl) o;
         return Objects.equals(id, user.id);
     }
+
+
 }
