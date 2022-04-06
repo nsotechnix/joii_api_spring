@@ -124,4 +124,9 @@ public class AuthController {
         }
         return ResponseEntity.ok().body(user);
     }
+    @GetMapping("/user/phone/{phone}")
+    public Optional<User> getUser(@PathVariable String phone) {
+        return userRepository.findUserByPhone(phone);
+    }
+
 }
