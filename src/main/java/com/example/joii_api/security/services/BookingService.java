@@ -45,7 +45,7 @@ public class BookingService {
 
     // Updates row in table
 //    public void updateBooking(Long id) {
-//       return bookingRepository.save(id);
+//       return bookingRepository.;
 //
 //    }
 

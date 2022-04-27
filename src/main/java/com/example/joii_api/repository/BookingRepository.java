@@ -14,4 +14,5 @@ public interface BookingRepository extends CrudRepository<Booking,String> {
     Optional<Booking> findById(Long id);
     @Query(value = "SELECT * FROM booking WHERE user_id = ?1", nativeQuery = true)
     List <Booking> findByUser(String user_id);
+
 }

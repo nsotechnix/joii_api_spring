@@ -24,11 +24,13 @@ public class Booking {
     @NotBlank
     private String user_id;
     @NotBlank
+    private String hotel_name;
+    @NotBlank
     private String room_id;
     @Column(name = "check_in_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd", iso = DateTimeFormat.ISO.DATE)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate check_in_date ;
+    private LocalDate check_in_date;
 
     @Column(name = "check_out_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd", iso = DateTimeFormat.ISO.DATE)
@@ -47,7 +49,7 @@ public class Booking {
     public Booking(){
         super();
     }
-    public Booking(Long id,String hotel_u_id,String user_id, String room_id,LocalDate check_in_date,LocalDate check_out_date,String status,String amount,String no_of_days,Date booking_date) {
+    public Booking(Long id,String hotel_u_id,String user_id, String room_id,LocalDate check_in_date,LocalDate check_out_date,String status,String amount,String no_of_days,Date booking_date,String hotel_name) {
         super();
         this.id = id;
         this.hotel_u_id = hotel_u_id;
@@ -59,6 +61,7 @@ public class Booking {
         this.amount=amount;
         this.no_of_days=no_of_days;
         this.booking_date=booking_date;
+        this.hotel_name=hotel_name;
 
     }
 
@@ -140,5 +143,13 @@ public class Booking {
 
     public void setBooking_date(Date booking_date) {
         this.booking_date = booking_date;
+    }
+
+    public String getHotel_name() {
+        return hotel_name;
+    }
+
+    public void setHotel_name(String hotel_name) {
+        this.hotel_name = hotel_name;
     }
 }
